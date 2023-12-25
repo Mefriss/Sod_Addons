@@ -1,0 +1,1 @@
+<Ui><Script>MainMenuBar.EndCaps.LeftEndCap:Hide(); MainMenuBar.EndCaps.RightEndCap:Hide()</Script></Ui>
