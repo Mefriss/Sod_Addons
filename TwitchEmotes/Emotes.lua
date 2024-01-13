@@ -835,6 +835,10 @@ TwitchEmotes_defaultpack = {
     ["Kekflap"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\Kekflap.tga:28:28",
     ["businesscat"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\businesscat.tga:28:28",
     ["LETHIMCOOK"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\LETHIMCOOK.tga:28:28",
+    ["ChipiChipi"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\ChipiChipi.tga:28:28",
+    [":horror:"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\horror.tga:28:28",
+    ["MikeSmug"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\MikeSmug.tga:28:28",
+    ["BedgeMorgan"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\BedgeMorgan.tga:28:28",
     -- DansGaming -- Outdated
     ["dan7"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\DansGaming\\dan7.tga:28:28",
     ["dan10"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\DansGaming\\dan10.tga:28:28",
@@ -2368,7 +2372,8 @@ TwitchEmotes_defaultpack = {
     ["shadowChatting"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Pepes\\shadowChatting.tga:28:28",
     ["peepoComfy"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Pepes\\peepoComfy.tga:28:28",
     ["SALAMI"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Pepes\\SALAMI.tga:28:28",
-    ["peepoSadPhone"] = "Interface\\AddOns\\TwitchEmotes\\Pepes\\Custom\\peepoSadPhone.tga:28:28",
+    ["peepoSadPhone"] = "Interface\\AddOns\\TwitchEmotes\\Pepes\\Pepes\\peepoSadPhone.tga:28:28",
+    ["dejj"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\Pepes\\dejj.tga:28:28",
     -- PsheroTV
     ["heroBT"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\PsheroTV\\heroBT.tga:28:28",
     ["heroFEELS"] = "Interface\\AddOns\\TwitchEmotes\\Emotes\\PsheroTV\\heroFEELS.tga:28:28",
@@ -3707,6 +3712,7 @@ TwitchEmotes_animation_metadata = {
     ["Interface\\AddOns\\TwitchEmotes\\Emotes\\typeg\\typegLoad.tga"] = {["nFrames"] = 8, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=256, ["framerate"] = 15},
     ["Interface\\AddOns\\TwitchEmotes\\Emotes\\typeg\\typegPaul.tga"] = {["nFrames"] = 10, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=512, ["framerate"] = 15},["Interface\\AddOns\\TwitchEmotes\\Emotes\\typeg\\hyperjoy.tga"] = {["nFrames"] = 9, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=512, ["framerate"] = 15},
     ["Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\Kekflap.tga"] = {["nFrames"] = 2, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=64, ["framerate"] = 15},["Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\Awoken.tga"] = {["nFrames"] = 38, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=2048, ["framerate"] = 15},
+    ["Interface\\AddOns\\TwitchEmotes\\Emotes\\Custom\\ChipiChipi.tga"] = {["nFrames"] = 24, ["frameWidth"] = 32, ["frameHeight"] = 32, ["imageWidth"]=32, ["imageHeight"]=1024, ["framerate"] = 25},
 }
 
 TwitchEmotes_emoticons = {
@@ -4581,6 +4587,10 @@ TwitchEmotes_emoticons = {
     ["Kekflap"] = "Kekflap",
     ["businesscat"] = "businesscat",
     ["LETHIMCOOK"] = "LETHIMCOOK",
+    ["ChipiChipi"] = "ChipiChipi",
+    [":horror:"] = ":horror:",
+    ["MikeSmug"] = "MikeSmug",
+    ["BedgeMorgan"] = "BedgeMorgan",
     -- DansGaming
     ["dan7"] = "dan7",
     ["dan10"] = "dan10",
@@ -6230,6 +6240,7 @@ TwitchEmotes_emoticons = {
     ["peepoComfy"] = "peepoComfy",
     ["SALAMI"] = "SALAMI",
     ["peepoSadPhone"] = "peepoSadPhone",
+    ["dejj"] = "dejj",
     -- PsheroTV
     ["heroBT"] = "heroBT",
     ["heroFEELS"] = "heroFEELS",
@@ -7710,5 +7721,5 @@ TwitchEmotes_emoticons = {
 };
 
 TwitchEmotes_ExcludedSuggestions = {
-    "Jons", ":jons:", ":twoofakind:", "HammersArk", "HammersNoArk", "Shelia", "LULWWW", ":mo:", ":penguin:", "Gerdlerk1", "Gerdlerk2", "Gerdlerk3", "Gerdlerk4", "Lucimage", "Bowtherapy", "NickyQW","gachiSLAPW","peepoMadW","FeelsBadManW","FeelsGoodManW","FeelsgoodManW","FeelsOkayManW","FeelsSleepyManW","PepeHandsW","PepeJAMW","WeirdWW","MooCowW","peepoLoveW","peepoPlotW","FeelsCryManW","monakW","LovepeepoW","WeirdJAMW","peepoExitW","FeelsLoveManW","HeartatoW","KEKWW","PogWartsW",":epicW:","Lyeasy","LyeREE","LyeCute","LyEZ","LyeShrug",":smook:","SmookDead","SmookEvil","SmookGasm","SmookMad","SmookNervous","SmookSad","SmookSpook","SmookWeird","SmookWink","SmookSmile", "unholysip"
+    "Jons", ":jons:", ":twoofakind:", "HammersArk", "HammersNoArk", "Shelia", "LULWWW", ":mo:", ":penguin:", "Gerdlerk1", "Gerdlerk2", "Gerdlerk3", "Gerdlerk4", "Lucimage", "Bowtherapy", "NickyQW","gachiSLAPW","peepoMadW","FeelsBadManW","FeelsGoodManW","FeelsgoodManW","FeelsOkayManW","FeelsSleepyManW","PepeHandsW","PepeJAMW","WeirdWW","MooCowW","peepoLoveW","peepoPlotW","FeelsCryManW","monakW","LovepeepoW","WeirdJAMW","peepoExitW","FeelsLoveManW","HeartatoW","KEKWW","PogWartsW",":epicW:","Lyeasy","LyeREE","LyeCute","LyEZ","LyeShrug",":smook:","SmookDead","SmookEvil","SmookGasm","SmookMad","SmookNervous","SmookSad","SmookSpook","SmookWeird","SmookWink","SmookSmile", "unholysip", "BedgeMorgan", "MikeSmug"
 }

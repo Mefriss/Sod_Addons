@@ -1,5 +1,5 @@
 --[[
-Copyright 2008-2023 João Cardoso
+Copyright 2008-2024 João Cardoso
 Sushi is distributed under the terms of the GNU General Public License (or the Lesser GPL).
 This file is part of Sushi.
 
@@ -17,7 +17,7 @@ You should have received a copy of the GNU General Public License
 along with Sushi. If not, see <http://www.gnu.org/licenses/>.
 --]]
 
-local Popup = LibStub('Sushi-3.2').Group:NewSushi('Popup', 5)
+local Popup = LibStub('Sushi-3.2').Group:NewSushi('Popup', 6)
 if not Popup then return end
 Popup.Active = Popup.Active or {}
 Popup.Size = 420
@@ -108,7 +108,7 @@ end
 
 function Popup:New(input)
 	local info = type(input) == 'table' and input or CopyTable(StaticPopupDialogs[input])
-	local id = info.id or input
+	local id = info.id or info.text or input
 
 	if UnitIsDeadOrGhost('player') and info.whileDead == false then
 		return info.OnCancel and info.OnCancel('dead')
@@ -128,9 +128,9 @@ function Popup:New(input)
 	end
 
 	local f = self:Super(Popup):New(UIParent)
-	f.id, f.edit, f.money = info.id or info.text, info.editBox, info.moneyInput or info.money
+	f.id, f.edit, f.money = id, info.editBox, info.moneyInput or info.money
 	f.button1, f.button2, f.moneyInput, f.hideOnEscape = info.button1, info.button2, info.moneyInput, f.hideOnEscape
-	f.text = info.text .. (not f.moneyInput and f.money and ('|n'..GetCoinTextureString(f.money)) or '')
+	f.text = (info.text or '') .. (not f.moneyInput and f.money and ('|n'..GetCoinTextureString(f.money)) or '')
 	f:SetBackdrop('DialogBorderDarkTemplate')
 	f:SetCall('OnAccept', info.OnAccept)
 	f:SetCall('OnCancel', info.OnCancel)

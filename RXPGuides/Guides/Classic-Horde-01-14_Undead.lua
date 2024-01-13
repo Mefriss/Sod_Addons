@@ -1865,13 +1865,16 @@ step
     .goto Tirisfal Glades,46.80,35.10,60,0
     .goto Tirisfal Glades,46.03,30.25
     .xp 9+4245 >> Grind to 9 4320+/6500xp
-step << Mage
+step << Mage/Priest
     #season 2
-    .train 401765,1
-    .goto Tirisfal Glades,25.6,48.2
-    >>Kill |cRXP_ENEMY_Gillgar|r. Loot him for the |cRXP_LOOT_|T134939:0|t[|cRXP_FRIENDLY_Spell Notes: RING SEFF OSTROF|r]|r
-    .collect 203753,1
+    >>Kill |cRXP_ENEMY_Gillgar|r. Loot him for the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: RING SEFF OSTROF|r] << Mage
+    >>Kill |cRXP_ENEMY_Gillgar|r. Loot him for the |T136222:0|t[|cRXP_FRIENDLY_Memory of Dark Purpose|r] << Priest
+    >>|cRXP_WARN_This is a level 7 elite and not easy to kill. Skip him for now if it's too hard|r
+    .collect 203753,1 << Mage --Spell Notes: RING SEFF OSTROF (1)
+    .collect 205940,1 << Priest --Memory of Dark Purpose (1)
     .mob Gillgar
+    .train 401765,1 << Mage
+    .train 425216,1 << Priest
 step << Mage
     #season 2
     .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item
@@ -3698,7 +3701,7 @@ step << Undead
     .target Doras
     .dungeon RFC
 step
-    .goto Orgrimmar,31.9,37.7
+    .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .accept 5726 >>Accept Hidden Enemies
     .target Thrall
@@ -3709,7 +3712,7 @@ step
     .complete 5726,1 --Lieutenant's Insignia (1)
     .dungeon RFC
 step
-    .goto Orgrimmar,31.9,37.7
+    .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .turnin 5726 >> Turn in Hidden Enemies
     .accept 5727 >> Accept Hidden Enemies
@@ -3730,7 +3733,7 @@ step
     .dungeon RFC
 step
     #label HiddenEnemiesPickup
-    .goto Orgrimmar,31.9,37.7
+    .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .turnin 5727 >> Turn in Hidden Enemies
     .accept 5728 >> Accept Hidden Enemies
@@ -3818,13 +3821,22 @@ step
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Neeru Fireblade|r
     .turnin 5761 >>Turn in Slaying the Beast
     .target Neeru Fireblade
+    .isQuestComplete 5761
     .dungeon RFC
 step
-    .goto Orgrimmar,31.9,37.7
+    .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .turnin 5728 >> Turn in Hidden Enemies
     .accept 5729 >> Accept Hidden Enemies
     .target Thrall
+    .isQuestComplete 5728
+    .dungeon RFC
+step
+    .goto Orgrimmar,31.74,37.82
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
+    .accept 5729 >> Accept Hidden Enemies
+    .target Thrall
+    .isQuestTurnedIn 5728
     .dungeon RFC
 step
     .goto Orgrimmar,49.6,50.4
@@ -3833,11 +3845,13 @@ step
     .accept 5730 >> Accept Hidden Enemies
     .target Neeru Fireblade
     .dungeon RFC
+    .isQuestTurnedIn 5728
 step
-    .goto Orgrimmar,31.9,37.7
+    .goto Orgrimmar,31.74,37.82
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thrall|r
     .turnin 5730 >> Turn in Hidden Enemies
     .target Thrall
+    .isQuestTurnedIn 5728
     .dungeon RFC
 step << Undead
     #completewith next

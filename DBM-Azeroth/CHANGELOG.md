@@ -1,24 +1,57 @@
-# <DBM Mod> Azeroth (Classic)
+# <DBM Mod> Azeroth (Vanilla)
 
-## [1.15.5](https://github.com/DeadlyBossMods/DBM-Classic/tree/1.15.5) (2023-12-12)
-[Full Changelog](https://github.com/DeadlyBossMods/DBM-Classic/compare/1.15.4...1.15.5) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Classic/releases)
+## [1.15.7](https://github.com/DeadlyBossMods/DBM-Classic/tree/1.15.7) (2024-01-09)
+[Full Changelog](https://github.com/DeadlyBossMods/DBM-Classic/compare/1.15.6...1.15.7) [Previous Releases](https://github.com/DeadlyBossMods/DBM-Classic/releases)
 
-- Prep classic version for tag  
+- bump versions, prepare new tag for all  
+- Update dropdowns with groupings  
+- begin, and stop work on adding missing strings to other files. That's probably all I'm gonna do cause it's way too much work with how crappy and disorganized files are. Makes me appreciate the localizers that do update these even more. I certainly don't have time or patience for it.  
+- further tweaks  
+- minor code tweak  
+- Update koKR (#363)  
+- Update localization.tw.lua (#362)  
+- Update localization.ru.lua (#361)  
+- Update dropdowns with groupings  
+- Group loathab dropdown  
+- Fix dropdown autopositioning if no previous element.  
+- Fix description parsing for dropdown options.  
+- Dropdowns still don't render at all if they don't have an option above them to anchor to, and since groupbyspells has removed most from misc section, added misc lines above all dropdowns as fallback  
+- Fix a bug that caused boss distance checks to fail when out of range, due to a bad logic check for success. It needs to be specifically a nil check and not a nil and false check  
+- update checkout  
+- Add a nice simple reset button to chat frame selection  
+- Bracket struggles.  
+- another naming fix. I'll actually fix this correctly by eliminating fragmentation of this mod later.  
+- Add UI option to select chat frame for DBM messages v2 (#360)  
+- update versioncheck  
+- reclassify world boss mod  
+- reclassify world boss mod  
+- Correctly sort World Boss tab and other tab  
+- Fix another removed change, hopefully without deleting entire repo due to sourcetree bug  
+- sourcetree is fucking stupid  
+- GUI Updates (#354) Co-authored-by: Adam <MysticalOS@users.noreply.github.com>  
+- note fix  
+- Update localization.ru.lua (#357)  
+- Update koKR (#358)  
+- Missed this too (BTW, verify your localized text cause I did my best guesswork with editing them)  
+- These options no longer control combat timers, since they are no longer hacked/dummy objects they follow normal timer conventions (meaning you enable/disable the countdown via GUI option within individual mods)  
+- Locale-BR: correct combat text tense (#356)  
+- Revert someof combat to RP timer changes, since I reworked and restored object and I do still want distinction of combat auto starts from rp \"this doesn't auto engage\" timers  
+- Reconstructed NewCombatTimer in standard auto timer texts so it's not injected into old enrage object.  
+- also change packaging name since i keep forgetting  
+- also change packaging name since i keep forgetting  
+- Forgot to replace the one that actually started journey of me finding the bug.  
+- replace all uses of NewCombatTimer with NewRPTimer  
+- Obliterate the NewCombatTimer object. It hasn't worked in the entire 9 or so years it existed, so no reason to start using it now, RP timer serves same function and actually works  
+- replace all uses of NewCombatTimer with NewRPTimer  
+- use the season 3 dungeon ids, not season 1, oops  
+- Fixed a bug where available mod notice would show every time you enter a dragonflight dungeon, it should only show once Fixed a different bug where it would NOT show when you entered a non dragonflight seasonal dungeon.  
+- add a feature that plays debug sound for timer debug messages, can be toggled off/on with /dbm debugsound  
+- Update localization.ru.lua (#355)  
+- It's about time to change this text to not say twitter, and just say \"most socials\" instead  
+- scope ashenvale pvp mod alert to only alert if level 25 and walking in zone. This will prevent message showing if leveling in zone or just flying over it.  
+- update luacheck  
+- Revert \"Switch callback debug\" This reverts commit 6fa2a9e908e738eb3fa5a7ca7b91ea137db23862.  
+- Update koKR (#350)  
+- Update localization.es.lua (#352)  
+- Update localization.es.lua (#351)  
 - bump alpha  
-- prep new retail tag  
-- Update commonlocal.cn.lua (#333)  
-- Update koKR (#331)  
-- Fix some of the bigger problems for LuaLS. (#332) This unlocks amazing LuaLS features like auto-complete and jump-to-definition for all fields in DBM, mods, timers, warnings etc :)  The main problem was that the DBM the DBM global was registered in a way it didn't understand (and hence it only saw about half the fields). Also, we had some cases of functions being tagged as optional for no good reason triggering a lot of nil check warnings.  It currently still reports around 600 problems or so, but a lot of these are just it being unhappy about us setting random fields in Frame objects which I guess we should disable.  
-- Re-enable item checks on hostile creatures in boss distance check code  
-- Add support for loading mods by MapID (#330)  
-- Fix ismythic check with recent change  
-- Allow anyone to set icons specifically in dungeons, instead of just party leader. This should solve many cases where no icons are set because person who was leader had no boss mod installed. Should make things like auto marking trio in waycrest more reliable  
-- Fix one failure condition for final scan not running and causing fallback filter target to work, is if by the time scan finished, bosses target went invalid, thus causing final scan to never schedule.  
-- hard wipe GUID period even if not elected icon setter (even though by code logic, if not elected, it would never get set in first place)  
-- Update localization.es.lua (#327)  
-- Update localization.tw.lua (#329)  
-- Temporarily revert last. It's far too spammy at present.  
-- Core: WBA: add SoD Boon of Blackfathom (#328)  
-- Update localization.es.lua (#39)  
-- Update localization.mx.lua (#38)  
-- bump classic alpha  

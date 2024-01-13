@@ -3648,6 +3648,20 @@ Improved animations for YEPPERS and shadowChatting
 
 
 
+
+----
+Twitch Emotes V2.62.2 - 2024 Update
+----
+Reverted Xmas emotes
+
+Added:
+KEKok
+dejj
+:horror:
+ChipiChipi
+
+
+
 ----
 To do
 ----

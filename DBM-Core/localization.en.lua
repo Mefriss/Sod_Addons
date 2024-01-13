@@ -46,7 +46,7 @@ L.LOOT_SPEC_REMINDER					= "Your current spec is %s. Your current loot choice is
 
 L.BIGWIGS_ICON_CONFLICT					= L.DBM .. " has detected that you have raid icons turned on in both BigWigs and " .. L.DBM .. ". Please disable icons in one of them to avoid conflicts"
 
-L.MOD_AVAILABLE							= "%s is available for this zone. You can find download on Curse, Wago, WoWI, or from the GitHub Releases page"
+L.MOD_AVAILABLE							= "%s is available for this zone. You can download it on Curse, Wago, WoWI, or from the GitHub Releases page."
 
 L.COMBAT_STARTED						= "%s engaged. Good luck and have fun! :)"
 L.COMBAT_STARTED_IN_PROGRESS			= "Engaged an in progress fight against %s. Good luck and have fun! :)"
@@ -139,8 +139,6 @@ L.GENERIC_WARNING_OTHERS2				= "and %d others"
 L.GENERIC_WARNING_BERSERK				= "Berserk in %s %s"
 L.GENERIC_TIMER_BERSERK					= "Berserk"
 L.OPTION_TIMER_BERSERK					= "Show timer for $spell:26662"
-L.GENERIC_TIMER_COMBAT					= "Combat starts"
-L.OPTION_TIMER_COMBAT					= "Show timer for combat start"
 L.BAD									= "Bad"
 
 L.OPTION_CATEGORY_TIMERS				= "Bars"
@@ -489,7 +487,8 @@ L.AUTO_TIMER_TEXTS = {
 	Intermissioncount					= "Intermission %%s",
 	adds								= "Adds",
 	addscustom							= "Adds (%%s)",
-	roleplay							= GUILD_INTEREST_RP or "Roleplay"
+	roleplay							= GUILD_INTEREST_RP or "Roleplay",--Used mid fight, pre fight, or even post fight. Boss does NOT auto engage upon completion
+	combat								= "Combat starts"--Only used if the boss auto engages upon completion (ie ragnaros type situation)
 }
 --This basically clones np only bar option and display text from regular counterparts
 L.AUTO_TIMER_TEXTS.cdnp = L.AUTO_TIMER_TEXTS.cd
@@ -529,7 +528,8 @@ L.AUTO_TIMER_OPTIONS = {
 	intermissioncount					= "Show timer (with count) for next intermission",
 	adds								= "Show timer for incoming adds",
 	addscustom							= "Show timer for incoming adds",
-	roleplay							= "Show timer for roleplay duration"--This does need localizing though.
+	roleplay							= "Show timer for roleplay duration",--This does need localizing though.
+	combat								= "Show timer for combat start"
 }
 
 L.AUTO_ICONS_OPTION_TARGETS				= "Set icons on $spell:%s targets"--Usually used for player targets with no specific sorting

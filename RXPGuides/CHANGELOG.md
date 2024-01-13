@@ -1,47 +1,22 @@
 # RestedXP Guides
 
-## [v4.5.42](https://github.com/RestedXP/RXPGuides/tree/v4.5.42) (2023-12-23)
-[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.5.40...v4.5.42) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)
+## [v4.5.43](https://github.com/RestedXP/RXPGuides/tree/v4.5.43) (2024-01-02)
+[Full Changelog](https://github.com/RestedXP/RXPGuides/compare/v4.5.42...v4.5.43) [Previous Releases](https://github.com/RestedXP/RXPGuides/releases)
 
+- SoD Updates  
+- Added missing nil check  
+- Coordinate fixes, info added to Gerenzo's Orders, other improvements  
+- Added missing .isQuestComplete dungeon steps  
+- Barrens WC routing improvements, minor misc bug fixes+improvements  
+- Fix Chewed Spell Notes itemid  
 - Merge branch 'main' of https://github.com/RestedXP/RXPGuides  
-- Runes update Speedrun Guide / fixes  
-- Icy Veins Restructure  
-    Icy Veins Restructure  
-- Shaman Rune Reorganisation  
-- Green theme  
-- Shaman Rune Guide individually finished, Call of water improvements, minor improvements  
-- Allowed item checks from bank  
-- Refactoring  
-- Shaman Rune Overhaul, Paladin rune minor fixes/improvements  
-- Fixed wrong formatting  
-- Including inventory slots for item checks  
-- Merge branch 'main' of https://github.com/RestedXP/RXPGuides  
-- Rune update Speedrun Guide + fixes  
-- Mage Icy Veins Rune Update  
-    - Added Icy Veins Rune Guide for Horde and Alliance  
-    - Introduced Deathskips and Portal Steps  
-    - More Safety Checks  
-    - Refined Color Coding and Text Formatting for Improved Readability  
-    - Optimized Routing for Increased Efficiency  
-- Merge branch 'main' of https://github.com/RestedXP/RXPGuides  
-- Durotar/Barrens adjustments  
-- Removed digging claw from the item db  
-- Update mobs for Exorcist rune  
-- Merge branch 'main' of https://github.com/RestedXP/RXPGuides  
-- Speedrun Guide Runes update  
-- shaman rune  
-- shaman rune  
-- Fix  
-- Merge branch 'main' of https://github.com/RestedXP/RXPGuides  
-- Fixed bugs/parsing errors  
-- Improved color formatting  
-- Fixed an issue with quest log debugging tools  
-- Added more runes to Alliance speedleveling guide  
-- Minor updates and adjustments  
-- Speedrun Guide runes update  
-- Mage Burnout fix (Tirisfal)  
-- Add Horde runes  
-- Update the reputation rune guid to only require friendly instead of honored  
-- Bug fixes and improvments to alliance speedrun guide  
-- Horde runes improvement/fixes  
-- Horde runes improvement/fixes  
+- Added 2 shaman runes/Improvement + fixes  
+- Added a software license  
+- Barrens Coordinate Fix  
+- Coordinate fixes, ID fixes, name fixes, Durotar 1-12 bug fixes  
+- The Defias Brotherhood speedrun fixes  
+- Minor Formatting Improvements  
+- Minor Redridge adjustments  
+- Shaman Rune Guide Finished, Formatting and other minor improvements  
+- Rolled back iventory count change  
+- Added Shaman runes Speedrun Guide  
