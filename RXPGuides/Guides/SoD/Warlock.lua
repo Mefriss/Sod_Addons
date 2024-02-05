@@ -27,13 +27,14 @@ RXPGuides.RegisterGuide([[
 step << Warlock
     #season 2
     .goto Dun Morogh,26.733,72.552
-    >>Open the |cRXP_PICK_Rockjaw Footlocker|r. Loot it for the |T134419:0|t[|cRXP_FRIENDLY_Rune of Haunting|r]
+    >>Open the |cRXP_PICK_Rockjaw Footlocker|r on the ground. Loot it for the |T134419:0|t|cRXP_LOOT_[Rune of Haunting]|r
     .collect 205230,1 -- Rune of Haunting (1)
+    .train 403919,1
 step << Warlock
     #season 2
-    .cast 402265 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Haunting|r]
+    .train 403919 >>|cRXP_WARN_Use the|r |T134419:0|t|cRXP_LOOT_[Rune of Haunting]|r |cRXP_WARN_to learn|r |T133816:0|t[Engrave Gloves - Haunt]
     .use 205230
-    .itemcount 205230,1
+    .itemcount 205230,1 -- Rune of Haunting (1)
 ]])
 
 
@@ -290,8 +291,8 @@ step
 step
     .train 425477,1
     #completewith DemonicGraceTirisfalGladesBlood
-    >>Kill |cRXP_ENEMY_Darkhounds|r. Loot them for the |T133726:0|t[Wolf Jawbone]
-    .collect 204907,1
+    >>Kill |cRXP_ENEMY_Darkhounds|r. Loot them for the |T133726:0|t[Hound Jawbone]
+    .collect 207973,1
     .mob Cursed Darkhound
     .mob Decrepit Darkhound
     .mob Ravenous Darkhound
@@ -318,8 +319,8 @@ step
     .goto Tirisfal Glades,59.4,60.2,50,0
     .goto Tirisfal Glades,44.4,58.4,50,0
     .goto Tirisfal Glades,42.0,43.0,50,0
-    >>Kill |cRXP_ENEMY_Darkhounds|r. Loot them for the |T133726:0|t[Wolf Jawbone]
-    .collect 204907,1
+    >>Kill |cRXP_ENEMY_Darkhounds|r. Loot them for the |T133726:0|t[Hound Jawbone]
+    .collect 207973,1
     .mob Cursed Darkhound
     .mob Decrepit Darkhound
     .mob Ravenous Darkhound
@@ -348,7 +349,7 @@ RXPGuides.RegisterGuide([[
 --Permok: Dont load it for mages for now
 
 step << Mage
-    >>Buy a (or multiple) |T135933:0|t[Comprehensive Charm] from a Reagent Vendor
+    >>Buy a (or multiple) |T135933:0|t[Comprehension Charm] from a Reagent Vendor
     .collect 211779,1
 step
     #completewith next
@@ -368,7 +369,7 @@ step
     .use 203748 << Mage
     .itemcount 205228,1 << Warlock
     .itemcount 203748,1 << Mage
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a Reagent Vendor to use the item << Mage
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a Reagent Vendor to use the item << Mage
     .train 403925 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Chaos Bolt|r] |cRXP_WARN_to train|r |T236291:0|t[Chaos Bolt]  << Warlock
     .train 401759 >>Use the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: Burnout|r] |cRXP_WARN_to train|r |T236207:0|t[Burnout] << Mage
 ]])
@@ -390,7 +391,7 @@ step
     .goto Hillsbrad Foothills,58.2,19.6,40,0
     .goto Hillsbrad Foothills,57.5,36.4,50,0
     .goto Hillsbrad Foothills,51.1,46.4,40,0
-    >>Look for |cRXP_FRIENDLY_Zixil|r. He patrolls between Tarren Mill and Southshore. Buy the |T133709:0|t[Demolition Explosives] from him |cRXP_WARN_for 5 gold|r
+    >>Look for |cRXP_FRIENDLY_Zixil|r. He patrolls between Tarren Mill and Southshore. Buy the |T133709:0|t[Demolition Explosives] from him |cRXP_WARN_for 1 gold|r
     .collect 211487,1
     .target Zixil
 step
@@ -409,7 +410,7 @@ RXPGuides.RegisterGuide([[
 << Warlock SoD
 #group RestedXP Rune Guide
 #subgroup Legs
-#name Incinerate - 22 (Redrige Mountains)
+#name Incinerate - 22 (Redridge Mountains)
 
 step
     #completewith next
@@ -514,6 +515,9 @@ step
     #completewith next
     .zone Silverpine Forest >>Travel to the Silverpine Forest
 step
+    .goto Silverpine Forest,60.38,74.37,40,0
+    .goto Silverpine Forest,60.29,72.21,40,0
+    .goto Silverpine Forest,59.38,70.54
     .train 403936,1
     >>Kill |cRXP_ENEMY_Ravenclaw Drudger|r and |cRXP_ENEMY_Ravenclaw Guardians|r |cRXP_WARN_inside the cave|r. Loot them for the |T236295:0|t[Tortured Soul]
     .collect 210713,1
@@ -544,8 +548,8 @@ step
     +|cRXP_WARN_It is recommended to do all these steps in a group. Some steps can be completed solo.|r
 step
     #completewith next
-    .zone Redridge Mountains >>Travel to the Redrige Mountains (e.g. take the boat from Ratchet to Booty Bay, run North) << Horde
-    .zone Redridge Mountains >>Travel to the Redrige Mountains << Alliance
+    .zone Redridge Mountains >>Travel to the Redridge Mountains (e.g. take the boat from Ratchet to Booty Bay, run North) << Horde
+    .zone Redridge Mountains >>Travel to the Redridge Mountains << Alliance
 step
     #label WarlockRuneMetamorphosisA
     .train 403938,1
@@ -640,7 +644,7 @@ step
     .mob Searing Infernal
 step
     .train 403938,1
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doan Karhan|r to get the |T134419:0|t[|cRXP_FRIENDLYRune of Metamorphosis|r]
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Doan Karhan|r to get the |T134419:0|t[|cRXP_FRIENDLY_Rune of Metamorphosis|r]
     .goto The Barrens,49.2,57.2
     .turnin 78684 >>Turn in Mysterious Traveler
     .turnin 78702 >>Turn in Raszel Ander

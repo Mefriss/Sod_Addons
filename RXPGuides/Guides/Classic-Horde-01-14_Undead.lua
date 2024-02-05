@@ -13,6 +13,10 @@ RXPGuides.RegisterGuide([[
 step << !Undead
     #completewith next
     +|cRXP_WARN_You have selected a guide meant for Undead. It is recommended you choose the same starter zone that you start in|r
+step << !Undead Mage
+    #season 2
+    #completewith next
+    +In Season of Discovery, you should NOT start outside of your race's starter zone as a Mage, as you will be unable to get your first rune here (|T133816:0|t[Engrave Gloves - Ice Lance])
 step
     #completewith Zombies
 	.destroy 6948 >> Destroy the |T134414:0|t[Hearthstone] in your bags, as it's no longer needed
@@ -320,7 +324,7 @@ step
     .complete 3901,1 --Kill Rattlecage Skeleton (12)
     .mob Rattlecage Skeleton
 step
-    #som
+    #som--xpgate
     #loop
     .goto Tirisfal Glades,31.82,61.48,30,0
     .goto Tirisfal Glades,31.11,60.71,30,0
@@ -639,15 +643,15 @@ step << Mage
 step << Mage
     #season 2
     .loop 25,Tirisfal Glades,36.13,68.74,36.46,69.49,36.85,70.02,37.42,69.58,38.05,69.79,37.91,69.22,38.03,68.77,38.49,68.28,38.72,67.07,38.59,66.25,38.65,65.07,37.62,65.36,36.93,65.38,36.51,65.42,36.85,66.59,37.45,67.95,36.93,68.16,36.13,68.74
-    >>Kill |cRXP_ENEMY_Scarlet Initiates|r. Loot them for the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r]
+    >>Kill |cRXP_ENEMY_Scarlet Initiates|r. Loot them for the |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r
     .collect 203751,1,77671,1 --Spell Notes: CALE ENCI (1)
     .mob Scarlet Initiate
 step << Mage
     #season 2
     #label RuneofIcelance
-    .use 203751 >>Use the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r]
-    .complete 77671,1 --Learn Spell: Engrave Gloves - Icelance
-    .isOnQuest 77671
+    .train 401760 >>|cRXP_WARN_Use the|r |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r |cRXP_WARN_to learn|r |T133816:0|t[Engrave Gloves - Ice Lance]
+    .use 203751
+    .itemcount 203751,1 -- Spell Notes: CALE ENCI (1)
 step << Rogue
     #season 2
     #completewith RuneofShadowstrike
@@ -711,6 +715,7 @@ step << Mage
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Isabella|r
     .turnin 77671 >>Turn in Spell Research
     .target Isabella
+    .isQuestComplete 77671
 step
     #sticky
     #label ScarletC
@@ -1082,9 +1087,10 @@ step << Rogue/Mage/Priest
     .train 402852,1 << Priest
 step << Mage
     #season 2
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
     .train 401768 >>|cRXP_WARN_Use|r|T134939:0|t[|cRXP_FRIENDLY_Spell Notes: MILEGIN VALF|r] |cRXP_WARN_to learn|r |T135820:0|t[Living Flame]
     .use 203752
+    .itemcount 203752,1
 step << Mage/Priest
     #season 2
     .goto Tirisfal Glades,25.6,48.2
@@ -1098,7 +1104,7 @@ step << Mage/Priest
     .train 425216,1 << Priest
 step << Mage
     #season 2
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
     .train 401765 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: RING SEFF OSTROF|r] |cRXP_WARN_to learn|r |T236227:0|t[Fingers of Frost]
     .use 203753
 step
@@ -1299,7 +1305,7 @@ step
     .complete 367,1 --Darkhound Blood (5)
     .mob Decrepit Darkhound
 step << Rogue/Warrior
-    #era/som
+    #era/som--xpgate
     .goto Tirisfal Glades,58.20,58.15,50,0
     .goto Tirisfal Glades,57.98,61.66,50,0
     .goto Tirisfal Glades,56.45,62.62,50,0
@@ -1314,7 +1320,7 @@ step << Rogue/Warrior
     .isQuestComplete 375
 step << Rogue/Warrior
     #label WarRogueDing8
-    #era/som
+    #era/som--xpgate
     .goto Tirisfal Glades,58.20,58.15,50,0
     .goto Tirisfal Glades,57.98,61.66,50,0
     .goto Tirisfal Glades,56.45,62.62,50,0
@@ -1877,7 +1883,7 @@ step << Mage/Priest
     .train 425216,1 << Priest
 step << Mage
     #season 2
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item
     .train 401765 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: RING SEFF OSTROF|r] |cRXP_WARN_to learn|r |T236227:0|t[Fingers of Frost.]
     .use 203753
 step
@@ -3013,7 +3019,7 @@ RXPGuides.RegisterGuide([[
 #version 11
 #defaultfor Undead/Troll Rogue/Orc Rogue/Orc Warlock/Troll Mage/Troll Priest
 #classic
-#era/som
+#era/som--h
 #name 11-14 Silverpine Forest
 #next 12-17 The Barrens
 
@@ -3105,7 +3111,7 @@ step << !Mage !Priest
     .money <0.05
 step
     .goto Silverpine Forest,43.98,39.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwyn|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Edwin|r
     >>|cRXP_BUY_Buy|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r << Mage/Warlock/Priest/Shaman/Druid
     .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 1179,20,421,1 << Mage/Warlock/Priest/Shaman/Druid --Ice Cold Milk (20)
@@ -3200,7 +3206,7 @@ step
     .goto Silverpine Forest,51.89,13.82,6,0
     .goto Silverpine Forest,51.54,13.91
     >>Kill |cRXP_ENEMY_Ivar the Foul|r. Loot him for his |cRXP_LOOT_Head|r
-    >>|cRXP_WARN_Ivar is protected by one|r |cRXP_ENEMY_Ravenclaw Slave|r |cRXP_WARN_. Use a health potion if needed|r
+    >>|cRXP_WARN_Ivar is protected by two|r |cRXP_ENEMY_Ravenclaw Slaves|r |cRXP_WARN_inside the barn. You can solopull one of them as he patrols forward|r
     >>|cRXP_WARN_They are immune to fear!|r << Priest/Warlock
     .complete 425,1 --Ivar's Head (1)
     .target Ivar the Foul
@@ -3321,7 +3327,7 @@ step << !Mage !Priest
     .target Gwyn Farrow
 step
     .goto Silverpine Forest,43.98,39.89
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gwyn|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Edwin|r
     >>|cRXP_BUY_Buy|r |T132815:0|t[Ice Cold Milk] |cRXP_BUY_from him|r << Warlock/Priest/Shaman/Druid
     .vendor >> |cRXP_BUY_Buy|r |T134830:0|t[Lesser Healing Potions] |cRXP_BUY_from him if they're up|r
     .collect 1179,20,423,1 << Warlock/Priest/Shaman/Druid --Ice Cold Milk (20)
@@ -3329,24 +3335,24 @@ step
 step << Warlock/Mage/Priest
     .goto Silverpine Forest,44.80,39.24
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Andrea|r
-    .vendor >> |cRXP_BUY_Buy a|r |T132491:0|t[Wise Man's Belt] |cRXP_BUY_from her if it's up|r
+    .vendor >> Buy |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r] from her if they're up
     .target Andrea Boynton
     .money <0.1400
 step << Rogue
     .goto Silverpine Forest,44.61,39.11
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Alexandre|r
-    .vendor >> |cRXP_BUY_Buy|r |T132539:0|t[Agile Boots] |cRXP_BUY_from him if they're up|r
+    .vendor >> Buy |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r] from her if they're up
     .target Alexandre Lefevre
     .money <0.2633
 step << Warlock/Mage/Priest
     #completewith Shackles
-    +Equip the |T132491:0|t[Wise Man's Belt]
+    +Equip the |T132491:0|t[|cRXP_FRIENDLY_Wise Man's Belt|r]
     .use 4786
     .itemcount 4786,1
     .xp <15,1
 step << Rogue
     #completewith Shackles
-    +Equip the |T132539:0|t[Agile Boots]
+    +Equip the |T132539:0|t[|cRXP_FRIENDLY_Agile Boots|r]
     .use 4788
     .itemcount 4788,1
     .xp <15,1
@@ -3407,7 +3413,7 @@ step << Mage
     .collect 208754,1 --Spell Notes: TENGI RONEERA (1)
     .mob Dalaran Apprentice
 step << Mage
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
     .train 401767 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: TENGI RONEERA|r] |cRXP_WARN_to learn|r |T132871:0|t[Regeneration.]
     .use 208754
 step << Rogue
@@ -3742,10 +3748,9 @@ step
 step
     #label EnterRFC
     .goto Orgrimmar,52.77,48.97
-    .zone 213 >> Enter the RFC Instance portal. Zone in
+    .subzone 2437 >> Enter the RFC Instance portal. Zone in
     .dungeon RFC
 step
-    #completewith TroggsShamans
     >>|cRXP_WARN_If possible, have party members share the following quests|r
     .accept 5722 >> Accept Searching for the Lost Satchel
     .accept 5723 >> Accept Testing an Enemy's Strength

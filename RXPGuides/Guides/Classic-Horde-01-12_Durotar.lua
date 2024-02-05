@@ -14,6 +14,10 @@ RXPGuides.RegisterGuide([[
 step << !Orc !Troll
     #completewith next
     +|cRXP_WARN_You have selected a guide meant for Orcs and Trolls. You should choose the same starter zone that you start in|r
+step << !Troll Mage
+    #season 2
+    #completewith next
+    +In Season of Discovery, you should NOT start outside of your race's starter zone as a Mage, as you will be unable to get your first rune here (|T133816:0|t[Engrave Gloves - Ice Lance])
 step
     .goto Durotar,43.29,68.53
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Kaltunk|r
@@ -102,7 +106,7 @@ step << !Warrior !Rogue
     #softcore
     .goto Durotar,42.59,67.34
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Duokna|r
-    >>|cRXP_BUY_Buy|r |T132794:0|t[Refreshing Spring Water] |cRXP_BUY_from her|r << !Hunter <<!Shaman
+    >>|cRXP_BUY_Buy|r |T132794:0|t[Refreshing Spring Water] |cRXP_BUY_from her|r << !Hunter !Shaman
     >>|cRXP_BUY_Buy|r |T132382:0|t[Rough Arrows] |cRXP_BUY_from her|r << Hunter
     .collect 159,30,6394,1 << !Hunter !Shaman --Refreshing Spring Water (30)
     .collect 2512,1000,6394,1 << Hunter --Rough Arrow (1000)
@@ -151,8 +155,8 @@ step
     >>Kill |cRXP_ENEMY_Sarkoth|r. Loot him for |cRXP_LOOT_Sarkoth's Mangled Claw|r and for |T134419:0|t[|cRXP_FRIENDLY_Rune of Explosive Shot|r] << Hunter
     >>Kill |cRXP_ENEMY_Sarkoth|r. Loot him for |cRXP_LOOT_Sarkoth's Mangled Claw|r and for |T134419:0|t[|cRXP_FRIENDLY_Rune of Furious Thunder|r] << Warrior
     .complete 790,1 --Sarkoth's Mangled Claw (1)
-    .collect 206169,1,790,1 --Rune of Explosive Shot (1) << Hunter
-    .collect 204809,1,790,1 --Rune of Furious Thunder(1) << Warrior
+    .collect 206169,1,790,1 << Hunter --Rune of Explosive Shot (1)
+    .collect 204809,1,790,1 << Warrior --Rune of Furious Thunder(1)
     .mob Sarkoth
 step << Warrior
     #season 2
@@ -183,7 +187,7 @@ step
     .complete 788,1 --Mottled Boar (10)
     .mob Mottled Boar
 step << Warlock/Warrior/Shaman/Hunter
-    #som
+    #som--xpgate
     .loop 25,Durotar,41.30,65.03,41.92,64.74,42.66,64.92,43.31,65.02,43.90,65.96,44.54,65.96,45.16,65.77,45.72,65.93,45.72,65.04,45.21,63.95,45.83,63.01,45.81,62.17,45.78,61.14,45.15,60.20,44.50,59.45,43.86,60.43,43.07,60.24,42.58,60.09,42.02,61.19,42.02,62.15,42.00,62.92,41.99,64.03,41.30,65.03
     .xp 2+870 >> Grind to 870+/900xp << Warlock
     .xp 3+760 >> Grind to 760+/1400xp << Warrior/Shaman/Hunter
@@ -423,7 +427,7 @@ step << Mage
     .goto Durotar,42.51,69.04
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Mai'ah|r
     .turnin 3086 >>Turn in Glyphic Tablet << Troll
-    .accept 77643 >>Accept Spell Research
+    .accept 77643 >>Accept Spell Research << Troll Mage
     .train 1459 >> Train |T135932:0|t[Arcane Intellect]
     .target Mai'ah
 step << Mage
@@ -827,6 +831,7 @@ step
     >>Loot the |cRXP_LOOT_Cactus Apples|r near the Cacti
     .complete 4402,1 --Cactus Apple (10)
 step << !Warrior !Rogue !Shaman
+    #optional
     #era
     .loop 25,Durotar,43.87,58.42,44.53,58.62,45.18,58.42,45.83,58.59,45.79,57.43,46.46,57.57,47.19,57.12,46.21,56.69,46.28,56.11,45.65,56.90,45.35,56.32,44.77,56.87,44.58,56.10,44.27,56.59,43.85,55.52,43.87,58.42
     .xp 4+1720 >> Grind to 1720+/2100xp
@@ -863,16 +868,18 @@ step
     .complete 6394,1 --Thazz'ril's Pick (1)
 step << Mage/Warlock
     #season 2
-    .goto Durotar,42.99,54.43
-    >>Loot the |cRXP_PICK_Waterlogged Stashbox|r for the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r] inside the cave << Mage
-    >>Loot the |cRXP_PICK_Waterlogged Stashbox|r for the |T134419:0|t[|cRXP_FRIENDLY_Rune of Haunting|r] inside the cave << Warlock
+    .goto Durotar,43.004,54.456
+    >>Open the |cRXP_PICK_Waterlogged Stashbox|r underwater inside the cave. Loot it for the |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r << Mage
+    >>|cRXP_WARN_NOTE: You will be unable to train|r |T133816:0|t[Engrave Gloves - Ice Lance] |cRXP_WARN_here as you can only get a|r |T133736:0|t[Comprehension Primer] |cRXP_WARN_in your race's starting zone|r << !Troll Mage
+    >>Open the |cRXP_PICK_Waterlogged Stashbox|r underwater inside the cave. Loot it for the |T134419:0|t|cRXP_LOOT_[Rune of Haunting]|r << Warlock
     .collect 203751,1,77643,1 << Mage --Spell Notes: CALE ENCI (1)
     .collect 205230,1,77586,1 << Warlock--Rune of Haunting (1)
+    .train 401760,1 << Mage
 step << Mage
     #season 2
-    .use 203751 >>Use the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r]
-    .complete 77643,1 --Learn Spell: Engrave Gloves - Icelance
-    .isOnQuest 77643
+    .train 401760 >>|cRXP_WARN_Use the|r |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r |cRXP_WARN_to learn|r |T133816:0|t[Engrave Gloves - Ice Lance]
+    .use 203751
+    .itemcount 203751,1 -- Spell Notes: CALE ENCI (1)
 step << Warlock
     #season 2
     .use 205230 >>Use the |T134419:0|t[|cRXP_FRIENDLY_Rune of Haunting|r]
@@ -895,6 +902,7 @@ step << Hunter
     >>|cRXP_WARN_This will allow you to obtain|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Marksmanship|r] |cRXP_WARN_early|r
     .xp 6 >> Grind to level 6
 step
+    #optional
     #era
     .loop 25,Durotar,42.70,52.99,42.97,51.14,43.56,52.05,43.74,52.65,44.13,52.85,44.82,52.51,44.83,53.40,44.78,54.57,45.14,55.02,45.51,55.23,45.14,55.02,44.51,55.03,44.21,54.12,43.92,54.30,43.87,55.22,43.46,55.56,43.05,55.24,42.38,54.22,42.53,53.48,43.27,53.82,42.70,52.99
     .xp 5+1635 >> Grind to 1635+/2800xp << !Shaman
@@ -995,7 +1003,7 @@ step
     .turnin 6394 >>Turn in Thazz'ril's Pick
     .target Foreman Thazz'ril
 step
-    #som
+    #som--xpgate
     .goto Durotar,44.63,68.65
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Thazz'ril|r
     .turnin 6394 >>Turn in Thazz'ril's Pick
@@ -1034,6 +1042,7 @@ step << Mage
     .train 2136 >>Train |T135807:0|t[Fire Blast]
     .turnin 77643 >> Turn in Spell Research
     .target Mai'ah
+    .isQuestComplete 77643
 step << Mage
     #season 0
     .goto Durotar,42.51,69.04
@@ -1804,7 +1813,7 @@ step << !Priest !Mage
     .goto Durotar,55.50,48.97
     .xp 7+2180 >> Grind to 2200+/4500xp
 step << !Priest !Mage
-    #som
+    #som--xpgate
     .goto Durotar,59.02,50.24,50,0
     .goto Durotar,57.93,47.71,50,0
     .goto Durotar,59.20,44.30,50,0
@@ -1822,7 +1831,7 @@ step << Priest
     .goto Durotar,55.50,48.97
     .xp 7+1730 >> Grind to 1750+/4500xp
 step << Priest
-    #som
+    #som--xpgate
     .goto Durotar,59.02,50.24,50,0
     .goto Durotar,57.93,47.71,50,0
     .goto Durotar,59.20,44.30,50,0
@@ -2170,7 +2179,7 @@ step
 step << Priest
     #season 2
     #completewith Fur
-    >>Kill the |cRXP_ENEMY_Voodoo Trolls|r. Loot them for |T135975:0|t[cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r]
+    >>Kill the |cRXP_ENEMY_Voodoo Trolls|r. Loot them for |T135975:0|t[|cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r]
     .collect 205947,1 --Prophecy of a Desecrated Citadel (1)
     .mob Voodoo Troll
     .train 402852,1
@@ -2210,7 +2219,7 @@ step << Mage
     .train 401765,1
 step << Mage
     #season 2
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item
     .train 401765 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: RING SEFF OSTROF|r] |cRXP_WARN_to learn|r |T236227:0|t[Fingers of Frost]
     .use 203753
 step
@@ -2229,7 +2238,7 @@ step
 step << Priest
     #season 2
     .loop 25,Durotar,67.23,88.76,66.52,87.74,65.94,86.72,65.90,84.04,65.88,82.85,67.38,82.61,68.42,82.43,68.50,84.32,68.47,86.77,67.23,88
-    >>Kill the |cRXP_ENEMY_Voodoo Trolls|r. Loot them for |T135975:0|t[cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r]
+    >>Kill the |cRXP_ENEMY_Voodoo Trolls|r. Loot them for |T135975:0|t[|cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r]
     .collect 205947,1 --Prophecy of a Desecrated Citadel (1)
     .mob Voodoo Troll
     .train 402852,1
@@ -2327,7 +2336,7 @@ step << Priest
     #completewith QuilboarsScouts
     .aura 418459 >>|cRXP_WARN_Now you have to find an Undead Priest with a Loa buff. You have to kneel before him and he has to /pray for you.|r
     .use 205947
-    .train 402852 >>|cRXP_WARN_Use the|r |T135975:0|t[cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r] |cRXP_WARN_to train|r |T237570:0|t[Homunculi]
+    .train 402852 >>|cRXP_WARN_Use the|r |T135975:0|t[|cRXP_FRIENDLY_Prophecy of a Desecrated Citadel|r] |cRXP_WARN_to train|r |T237570:0|t[Homunculi]
     .itemcount 205947,1
 step
     #completewith QuilboarsScouts
@@ -2380,7 +2389,7 @@ step << Hunter
     .loop 25,Durotar,47.52,48.67,46.12,45.47,43.65,43.91,41.68,44.69,41.00,46.13,42.47,48.50,44.21,49.68,47.17,49.44,47.52,48.67
     .xp 9+4470 >> Grind to 4470+/6500xp
 step << Hunter
-    #som
+    #som--xpgate
     .loop 25,Durotar,47.52,48.67,46.12,45.47,43.65,43.91,41.68,44.69,41.00,46.13,42.47,48.50,44.21,49.68,47.17,49.44,47.52,48.67
     .xp 9+3660 >> Grind to 3660+/6500xp
 step << Hunter
@@ -2630,6 +2639,11 @@ step << Warrior/Shaman/Hunter
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Rhinag|r
     .accept 812 >>Accept Need for a Cure
     .target Rhinag
+step << Warrior/Shaman
+    .goto Durotar,44.16,19.19,60,0
+    .goto Durotar,44.13,17.02,60,0
+    .goto Durotar,43.56,15.08
+    .xp 9+2930 >>Grind to 2930+/6500 into level 9
 step << Warrior/Shaman/Hunter
     #label EnterOrg
     #completewith next
@@ -2920,10 +2934,10 @@ step << Warrior/Shaman
     .accept 1492 >>Accept Wharfmaster Dizzywig
     .target Apothecary Helbrim
 step << Warrior/Shaman
-    #completewith
-step << Warrior/Shaman
     #completewith next
     >>Collect |cRXP_LOOT_Laden Mushrooms|r around The Forgotten Pools
+    >>|cRXP_WARN_Keep maximum distance from |cRXP_ENEMY_Kolkar|r |cRXP_WARN_as you loot the mushrooms. They are level 12-14|r
+    >>|cRXP_WARN_The follow-up of this quest has the powerful |cRXP_FRIENDLY_Cauldron Stinger|r |cRXP_WARN_as a reward. You can skip this quest for now if you do not intend to use it|r
     .complete 848,1 --Collect Fungal Spores (x4)
 step << Warrior/Shaman
     .goto The Barrens,45.06,22.54
@@ -2934,8 +2948,13 @@ step << Warrior/Shaman
     .goto The Barrens,45.2,22.0,40,0
     .goto The Barrens,44.6,22.5,40,0
     .goto The Barrens,43.9,24.4,40,0
-    .goto The Barrens,45.2,23.3
+    .goto The Barrens,45.2,23.3,40,0
+    .goto The Barrens,45.2,22.0,40,0
+    .goto The Barrens,44.6,22.5,40,0
+    .goto The Barrens,43.9,24.4
     >>Collect |cRXP_LOOT_Laden Mushrooms|r around The Forgotten Pools
+    >>|cRXP_WARN_Keep maximum distance from |cRXP_ENEMY_Kolkar|r |cRXP_WARN_in the area. They are level 12-14|r
+    >>|cRXP_WARN_The follow-up of this quest has the powerful |cRXP_FRIENDLY_Cauldron Stinger|r |cRXP_WARN_as a reward. You can skip this quest for now if you do not intend to use it|r
     .complete 848,1 --Collect Fungal Spores (x4)
 step << Warrior/Shaman
     #hardcore
@@ -2950,7 +2969,8 @@ step << Warrior/Shaman
     #label FungalSporesComplete
     .goto The Barrens,51.44,30.15
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Helbrim|r
-    >>|cRXP_WARN_Wait for the RP to finish. This starts a timed quest!|r
+    >>|cRXP_WARN_Wait for the RP to finish|r
+    >>|cRXP_WARN_This starts a 45-minute timed quest|r
     .turnin 848 >> Turn in Fungal Spores
     .accept 853 >> Accept Apothecary Zamah
     .target Apothecary Helbrim
@@ -2965,6 +2985,7 @@ step << Warrior/Shaman
     #sticky
     #completewith ZamahTurnin2
     +|cRXP_WARN_You are on a timed quest, don't go afk. It will get turned in around 30 minutes after pick-up|r
+    .isOnQuest 853
 step << Warrior/Shaman
     .goto The Barrens,52.26,31.93
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Tonga|r
@@ -3114,11 +3135,13 @@ step << Warrior/Shaman
     .turnin 853 >> Turn in Apothecary Zamah
     .goto Thunder Bluff,22.82,20.88
     .target Apothecary Zamah
+    .isOnQuest 853
 step << Warrior/Shaman
     #completewith RiteofWisdomTurnin
     +Equip the |T135145:0|t[Cauldron Stirrer]
     .use 5340
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<10.1
+    .itemcount 5340,1
 step << Warrior/Shaman
 	#era/som
     #completewith RiteofWisdomTurnin
@@ -3393,7 +3416,7 @@ step << Shaman
     .train 410104,1
     .xp <4,1
 step << Warrior/Shaman
-	#era/som
+	#era/som--xpgate
     .loop 25,Mulgore,61.35,47.55,60.10,47.84,59.50,48.21,59.68,48.85,60.14,49.14,62.01,48.74,61.89,47.84,61.35,47.55
     .xp 11+7150 >> Grind to 7150+/8700xp
  step << Warrior/Shaman
@@ -3644,6 +3667,9 @@ step << Hunter
     .mob Venomtail Scorpid
     .mob Bloodtalon Scythemaw
 step << Shaman
+    #completewith next
+    .subzone 817 >>Travel toward Skull Rock
+step << Shaman
     .goto Durotar,53.18,29.15,20,0
     .goto Durotar,52.70,27.97,12,0
     .goto Durotar,53.05,27.87,12,0
@@ -3707,9 +3733,10 @@ step << Mage
     .train 401768,1
 step << Mage
     #season 2
-    .collect 211779,1 >>You need a |T135933:0|t[Comprehensive Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
+    .collect 211779,1 >>You need a |T135933:0|t[Comprehension Charm] from a |cRXP_FRIENDLY_Reagent Vendor|r to use the item.
     .train 401768 >>|cRXP_WARN_Use|r|T134939:0|t[|cRXP_FRIENDLY_Spell Notes: MILEGIN VALF|r] |cRXP_WARN_to learn|r |T135820:0|t[Living Flame]
     .use 203752
+    .itemcount 203752,1
 step << Warrior/Shaman/Hunter
     #era/som
     #completewith Gazzuz

@@ -9,14 +9,18 @@ RXPGuides.RegisterGuide([[
 #group RestedXP Alliance 1-20
 #defaultfor Human
 #next 6-11 Elwynn Forest; 6-13 Elwynn Forest
+
+
 step << !Human
-    #sticky
     #completewith next
-    .goto Elwynn Forest,48.171,42.943
     +You have selected a guide meant for Humans. You should choose the same starter zone that you start in
 step << Mage
     #completewith next
     +Note that you have selected the single target Mage guide. Single target is a lot safer than AoE Mage, but a LOT slower
+step << !Human Mage
+    #season 2
+    #completewith next
+    +In Season of Discovery, you should NOT start outside of your race's starter zone as a Mage, as you will be unable to get your first rune here (|T133816:0|t[Engrave Gloves - Ice Lance])
 step << Warlock
     #completewith next
     .goto Elwynn Forest,50.051,42.689
@@ -142,7 +146,7 @@ step << Priest/Mage/Warlock
     .goto Elwynn Forest,47.486,41.566
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Brother Danil|r
     .vendor >>|cRXP_WARN_Vendor trash|r
-    >>|cRXP_WARN_Buy 10|r |T132794:0|t[Refreshing Spring Water]
+    >>|cRXP_WARN_Buy 10|r |T132794:0|t[Refreshing Spring Water]|cRXP_WARN_. Make sure you save 10c or more for later|r << Priest/Mage
     .target Brother Danil
     .collect 159,10 --Collect Refreshing Spring Water (x10)
 step << !Priest !Mage !Warlock !Rogue
@@ -201,20 +205,32 @@ step
     .goto Elwynn Forest,48.923,41.606
     .turnin 15 >> Turn in Investigate Echo Ridge
     .accept 21 >> Accept Skirmish at Echo Ridge
-step << Priest/Mage
+step << Priest
+    #optional
     #completewith next
-    .goto Elwynn Forest,49.52,39.99,10 >> Travel upstairs << Mage
-    .goto Elwynn Forest,49.3,40.7,15 >> Travel toward |cRXP_FRIENDLY_Priestess Anetta|r << Priest
+    .goto Elwynn Forest,49.3,40.7,15 >> Travel toward |cRXP_FRIENDLY_Priestess Anetta|r
+step << Mage
+    #optional
+    #completewith next
+    .goto 1429,48.79,41.58,12,0
+    .goto 1429,48.975,41.146,12,0
+    .goto 1429,49.262,40.633,12,0
+    .goto 1429,49.510,40.095,6,0
+    .goto 1429,49.691,40.230,6,0
+    .goto 1429,49.595,40.673,6,0
+    .goto 1429,49.324,40.492,6,0
+    .goto 1429,49.436,39.881,10,0
+    .goto Elwynn Forest,49.661,39.402,12 >>Travel toward |cRXP_FRIENDLY_Khelden Bremen|r upstairs
 step << Mage
     #season 0
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r inside upstairs
     .goto Elwynn Forest,49.661,39.402
     .turnin 3104 >> Turn in Glyphic Letter
     .trainer >> Train your class spells
     .target Khelden Bremen
 step << Mage
     #season 2
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r inside upstairs
     .goto Elwynn Forest,49.661,39.402
     .turnin 3104 >> Turn in Glyphic Letter
     .accept 77620 >> Accept Spell Research << Human Mage
@@ -222,7 +238,7 @@ step << Mage
     .target Khelden Bremen
 step << Priest
     #completewith next
-    .goto Elwynn Forest,49.8,40.2,10 >> Travel through the doorway
+    .goto Elwynn Forest,49.8,40.2,10 >> Go through the doorway inside
 step << Priest
     #season 0
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Priestess Anetta|r
@@ -379,26 +395,32 @@ step << Warlock
     .cast 402265 >>|cRXP_WARN_Use the|r |T134419:0|t[|cRXP_FRIENDLY_Rune of Haunting|r]
     .use 205230
     .itemcount 205230,1
-step << Human Mage
+step << Mage
     #season 2
+    #loop
     #label CALEENCI
     #completewith RedBurlapBandana
-    .isOnQuest 77620
-    >>Kill |cRXP_ENEMY_Defias Thugs|r. Loot them for the |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r]
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
+    >>Kill |cRXP_ENEMY_Defias Thugs|r. Loot them for the |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r
+    >>|cRXP_WARN_NOTE: You will be unable to train|r |T133816:0|t[Engrave Gloves - Ice Lance] |cRXP_WARN_here as you can only get a|r |T133736:0|t[Comprehension Primer] |cRXP_WARN_in your race's starting zone|r << !Human
     .collect 203751,1,77620,1 -- Spell Notes: CALE ENCI (1)
     .mob Defias Thug
+    .train 401760,1
 step << Human Mage
-    #requires CALEENCI
-    #completewith next
     #season 2
-    .isOnQuest 77620
-    .use 203751 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_Spell Notes: CALE ENCI|r]
-    .complete 77620,1 -- Learn: Engrave Gloves - Ice Lance
+    #requires CALEENCI
+    #completewith RedBurlapBandana
+    .train 401760 >>|cRXP_WARN_Use the|r |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r |cRXP_WARN_to learn|r |T133816:0|t[Engrave Gloves - Ice Lance]
+    .use 203751
+    .itemcount 203751,1 -- Spell Notes: CALE ENCI (1)
 step << Paladin
     #season 2
     #loop
     #label Libram1
     #completewith RedBurlapBandana
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
     .goto Elwynn Forest,52.55,48.79,30,0
     .goto Elwynn Forest,53.89,50.52,30,0
     .goto Elwynn Forest,55.09,49.00,30,0
@@ -423,6 +445,8 @@ step << Paladin
     #requires Libram2
     #completewith RedBurlapBandana
     #loop
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
     .goto Elwynn Forest,52.55,48.79,30,0
     .goto Elwynn Forest,53.89,50.52,30,0
     .goto Elwynn Forest,55.09,49.00,30,0
@@ -457,6 +481,8 @@ step
     #season 2
     #loop
     #label RedBurlapBandana
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
     .goto Elwynn Forest,52.55,48.79,30,0
     .goto Elwynn Forest,53.89,50.52,30,0
     .goto Elwynn Forest,55.09,49.00,30,0
@@ -465,24 +491,31 @@ step
     >>Kill |cRXP_ENEMY_Defias Thugs|r. Loot them for their |cRXP_LOOT_Bandanas|r
 	.mob Defias Thug
     .complete 18,1 --Collect Red Burlap Bandana (x12)
-step << Human Mage
+step << Mage
     #season 2
-    .isOnQuest 77620
-    .goto Elwynn Forest,53.9,49.2,50,0
-    .goto Elwynn Forest,55.5,42.1,50,0
-    .goto Elwynn Forest,53.9,49.2
-    .goto Elwynn Forest,54.57,49.03
-    >>Kill |cRXP_ENEMY_Defias Thugs|r. Loot them for the |T134939:0|t[|cRXP_FRIENDLY_[Spell Notes: CALE ENCI]|r]
+    #loop
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
+    .goto Elwynn Forest,52.55,48.79,50,0
+    .goto Elwynn Forest,53.89,50.52,50,0
+    .goto Elwynn Forest,55.09,49.00,50,0
+    .goto Elwynn Forest,55.43,45.87,50,0
+    .goto Elwynn Forest,53.86,47.05,50,0
+    >>Kill |cRXP_ENEMY_Defias Thugs|r. Loot them for the |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r
+    >>|cRXP_WARN_NOTE: You will be unable to train|r |T133816:0|t[Engrave Gloves - Ice Lance] |cRXP_WARN_here as you can only get a|r |T133736:0|t[Comprehension Primer] |cRXP_WARN_in your race's starting zone|r << !Human
     .collect 203751,1,77620,1 -- Spell Notes: CALE ENCI (1)
     .mob Defias Thug
+    .train 401760,1
 step << Human Mage
     #season 2
-    .isOnQuest 77620
-    .use 203751 >>|cRXP_WARN_Use the|r |T134939:0|t[|cRXP_FRIENDLY_[Spell Notes: CALE ENCI]|r]
-    .complete 77620,1 -- Learn: Engrave Gloves - Ice Lance
+    .train 401760 >>|cRXP_WARN_Use the|r |T134939:0|t|cRXP_LOOT_[Spell Notes: CALE ENCI]|r |cRXP_WARN_to learn|r |T133816:0|t[Engrave Gloves - Ice Lance]
+    .use 203751
+    .itemcount 203751,1 -- Spell Notes: CALE ENCI (1)
 step << Paladin
     #season 2
     #loop
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
     .goto Elwynn Forest,52.55,48.79,30,0
     .goto Elwynn Forest,53.89,50.52,30,0
     .goto Elwynn Forest,55.09,49.00,30,0
@@ -502,6 +535,8 @@ step << Paladin
 step << Paladin
     #season 2
     #loop
+    .goto Elwynn Forest,52.55,48.79,0
+    .goto Elwynn Forest,55.43,45.87,0
     .goto Elwynn Forest,52.55,48.79,30,0
     .goto Elwynn Forest,53.89,50.52,30,0
     .goto Elwynn Forest,55.09,49.00,30,0
@@ -516,13 +551,13 @@ step << Paladin
     .use 205420
     .aura 408828
     .train 410002,1
-step << Dwarf Paladin
+step << Human Paladin
     #season 2
     #completewith RestandR
     #label CSLibram3
     .equip 10 >> |cRXP_WARN_Equip a pair of|r |T132938:0|t|cRXP_LOOT_[Gloves]|r |cRXP_WARN_if you have some or when you loot some|r
     .train 410002,3
-step << Dwarf Paladin
+step << Human Paladin
     #season 2
     #completewith RestandR
     #requires CSLibram3
@@ -569,15 +604,33 @@ step << Paladin
     .itemStat 16,ITEM_MOD_DAMAGE_PER_SECOND_SHORT,<2.6
 step << Human Mage
     #season 2
-    #completewith next
-    .goto Elwynn Forest,49.52,39.99,10 >> Travel upstairs
+    #optional
+    #label IceLance2
+    #completewith Research2
+    .goto Elwynn Forest,48.33,41.90,15 >>Enter Northshire Abbey
+    .isQuestComplete 77620
 step << Human Mage
     #season 2
+    #optional
+    #requires IceLance2
+    #completewith Research2
+    .goto 1429,48.79,41.58,12,0
+    .goto 1429,48.975,41.146,12,0
+    .goto 1429,49.262,40.633,12,0
+    .goto 1429,49.510,40.095,6,0
+    .goto 1429,49.691,40.230,6,0
+    .goto 1429,49.595,40.673,6,0
+    .goto 1429,49.324,40.492,6,0
+    .goto 1429,49.436,39.881,10,0
+    .goto Elwynn Forest,49.661,39.402,12 >>Travel toward |cRXP_FRIENDLY_Khelden Bremen|r upstairs
     .isQuestComplete 77620
+step << Human Mage
+    #season 2
     .goto Elwynn Forest,49.661,39.402
-    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Khelden Bremen|r inside
     .turnin 77620 >> Turn in Spell Research
     .target Khelden Bremen
+    .isQuestComplete 77620
 step << Human Paladin
     #season 2
     .isQuestComplete 77617
@@ -592,14 +645,14 @@ step << Human Paladin
     .equip 10,2385 >> |cRXP_WARN_Equip the|r |T132938:0|t|cRXP_LOOT_[Tarnished Chain Gloves]|r
     .use 2385
     .itemcount 2385,1
-    .train 410002,2
+    .train 410002,3
     .itemStat 10,LEVEL,<5
 step << Human Paladin
     #season 2
     #completewith RestandR
     #requires CSLibram3
     .engrave 10 >> |cRXP_WARN_Engrave the|r |T132938:0|t|cRXP_LOOT_[Tarnished Chain Gloves]|r with|r |T133816:0|t[Engrave Gloves - Crusader Strike]
-    .train 410002,2
+    .train 410002,3
     .itemStat 10,LEVEL,<5
 step << skip
     >> Talk to |cRXP_FRIENDLY_Godric Rothgar|r
@@ -915,8 +968,6 @@ step
     .goto Elwynn Forest,34.486,84.253
     .accept 88 >> Accept Princess Must Die!
 	.goto Elwynn Forest,34.660,84.482
-
-
 step
     #completewith next
     >>Kill |cRXP_ENEMY_Kobold Tunnelers|r and |cRXP_ENEMY_Kobold Miners|r. Loot them for their |cRXP_LOOT_Candles|r and |cRXP_LOOT_Dust|r
@@ -1424,7 +1475,7 @@ step << Paladin
     #label Prowlers
     .goto Elwynn Forest,79.80,55.50
     >>Click |cRXP_PICK_Rolf's corpse|r on the ground
-    >>|cRXP_ENEMY_Murloc Foragers|r |cRXP_WARN_will cast|r |T135915:0|t[Drink Minor Potion] |cRXP_WARN_which heals themselves for 61-68|r
+    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Murloc Foragers|r will cast|r |T135915:0|t[Drink Minor Potion] |cRXP_WARN_which heals themselves for 61-68 health|r
     >>|cRXP_WARN_Pull the 2|r |cRXP_ENEMY_Murlocs|r |cRXP_WARN_in front of the huts, move away and nuke one of them down fast. Use|r |T135954:0|t[Divine Protection] |cRXP_WARN_and your Heals as required. This is a good opportunity to use|r |T133581:0|t[Bag of Marbles]|cRXP_WARN_. Run away and reset once you've killed one|r << Paladin
     >>|cRXP_WARN_Remember during|r |T135954:0|t[Divine Protection] |cRXP_WARN_you are unable to attack|r << Paladin
     .turnin 45 >> Turn in Discover Rolf's Fate
@@ -1433,7 +1484,7 @@ step << !Paladin
     #label Prowlers
     .goto Elwynn Forest,79.80,55.50
     >>Click |cRXP_PICK_Rolf's corpse|r on the ground
-    >>|cRXP_ENEMY_Murloc Foragers|r |cRXP_WARN_will cast|r |T135915:0|t[Drink Minor Potion] |cRXP_WARN_which heals themselves for 61-68|r
+    >>|cRXP_WARN_Be careful as |cRXP_ENEMY_Murloc Foragers|r will cast|r |T135915:0|t[Drink Minor Potion] |cRXP_WARN_which heals themselves for 61-68 health|r
     >>|cRXP_WARN_Cast|r |T135953:0|t[Renew] |cRXP_WARN_and|r |T135940:0|t[Power Word: Shield] |cRXP_WARN_then get full mana. Pull the 2 |cRXP_ENEMY_Murlocs|r in front of the huts, move away, then nuke one. Run away when you kill one, then kill the other|r << Priest
     >>|cRXP_WARN_Pull the 2|r |cRXP_ENEMY_Murlocs|r |cRXP_WARN_in front of the huts, move away and|r |T136071:0|t[Polymorph] |cRXP_WARN_one whilst killing the other. Kill the|r |T136071:0|tPolymorphed |cRXP_WARN_one after|r << Mage
     >>|cRXP_WARN_Pool 100 Rage. Pull the 2|r |cRXP_ENEMY_Murlocs|r |cRXP_WARN_in front of the huts, move away and keep|r |T132316:0|t[Hamstring] |cRXP_WARN_on one whilst killing the other. Also use|r |T133581:0|t[Bag of Marbles] |cRXP_WARN_on the one you're killing. Run away and reset the one being kited with|r |T132316:0|t[Hamstring] |cRXP_WARN_after you've killed one|r << Warrior
@@ -1644,14 +1695,23 @@ step << !Warlock
     .fp Redridge Mountains >> Get the Redridge Mountains flight path
     .target Ariena Stormfeather
 step
-    #completewith next
+    #completewith CollectKelp
     .hs >> Hearth to Goldshire
 step
+    .goto 37,43.318,65.705
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William Pestle|r
-    .goto Elwynn Forest,43.318,65.705
     .turnin 112 >> Turn in Collecting Kelp
+    .timer 9,Collecting Kelp RP
     .accept 114 >> Accept The Escape
     .target William Pestle
+step
+    #label CollectKelp
+    .goto 37,43.318,65.705
+    >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_William Pestle|r
+    >>|cRXP_WARN_Wait out the RP|r
+    .accept 114 >> Accept The Escape
+    .target William Pestle
+    .isQuestTurnedIn 112
 step << Warrior/Rogue
     #completewith next
     .goto Elwynn Forest,43.877,66.546,9 >> Travel upstairs in the Inn
@@ -2439,9 +2499,9 @@ step << Paladin
 step << Paladin
     #season 2
     #completewith Dirt
-    .engrave 7 >>|cRXP_WARN_Engrave your|r |T134596:0|t|cRXP_LOOT_[Pants]|r with|r |T134596:0|t[Engrave Pants - Rebuke]
+    .engrave 7 >>|cRXP_WARN_Engrave your|r |T134596:0|t|cRXP_LOOT_[Pants]|r |cRXP_WARN_with|r |T134596:0|t[Engrave Pants - Rebuke]
     >>|cRXP_WARN_Remember to put|r |T134919:0|t[Rebuke] |cRXP_WARN_onto your action bars|r
-    .train 425621,2
+    .train 425621,3
 step
     .goto Ironforge,55.501,47.742
     >>|Tinterface/worldmap/chatbubble_64grey.blp:20|tTalk to |cRXP_FRIENDLY_Gryth Thurden|r
@@ -2630,7 +2690,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
-#era/som
+#era/som--h
 << Alliance
 #name 11-13 Loch Modan
 #version 1
@@ -2956,7 +3016,7 @@ step << Warlock
     .goto Loch Modan,27.33,56.70,0
     .xp 13+9600 >>Grind until 9600+/11400xp
 step << Warlock
-    #som
+    #som--xpgate
     .xp 14-2520 >> Grind until you are 8880xp into level 13
 step << Mage
     #season 2
@@ -3239,7 +3299,7 @@ step
 ]])
 
 RXPGuides.RegisterGuide([[
-#som
+#som--h
 #phase 3-6
 #classic
 << Alliance
@@ -4319,7 +4379,7 @@ step
 
 RXPGuides.RegisterGuide([[
 #classic
-#som
+#som--h
 #phase 3-6
 << Alliance
 #name 13-14 Loch Modan
